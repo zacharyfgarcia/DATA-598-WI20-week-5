@@ -1,0 +1,43 @@
+---
+title: "test-vignette"
+author:
+    name: "Zack Garcia"
+    email: "garciz@uw.edu"
+    affiliation: "University of Washington"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{test-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: mybib.bib
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r starwars-tbl}
+library(tidyverse)
+starwars %>%
+  filter(species == "Human") %>%
+  select(name, height, mass, homeworld) %>%
+  knitr::kable(caption = "A knitr kable table of starwars data")
+```
+
+We can see in Table \@ref(test-label) some humans again and their details. 
+
+```{r readcode, eval=TRUE}
+source('external-test.R')
+```
+
+[@mcgill2017ecosystem] is a citation for a paper published by my girlfriend while at UW. 
+
+```{r setup}
+library(InClassTest)
+```
+
+# References
